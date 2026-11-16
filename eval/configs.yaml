@@ -1,0 +1,7 @@
+# Ablation Study Configurations (Day 4)
+# C0: none (passthrough baseline without any firewall layers enabled)
+# C1: L1 (Layer 1 SQL AST rules via sqlglot)
+# C2: L1+L2 (Layer 1 SQL AST rules + Layer 2 PII masking)
+# C3: L1+L2+L3 (Layer 1 SQL AST rules + Layer 2 PII masking + Layer 3 rate and budget limits)
+# C4: L1-L4 (Layer 1 through Layer 4 including LLM judge)
+# C5: L1-L5 + self-healer (Full defense with Layer 5 approval gate + self-healing agent)
