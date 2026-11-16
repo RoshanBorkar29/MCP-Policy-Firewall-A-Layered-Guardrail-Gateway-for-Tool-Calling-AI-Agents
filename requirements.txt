@@ -1,7 +1,6 @@
 mcp[cli]
-anthropic
+groq
 sqlglot
 faker
 pyyaml
 pytest
-

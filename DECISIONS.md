@@ -16,6 +16,7 @@ This document records project-wide architectural decisions, rationale, alternati
 | 2026-11-16 | Dev/held-out split 70/30, held-out run only once | 50/50 split, k-fold cross-validation, continuous held-out testing | 70% dev set allows iterative rule tuning and prompt refinement; running the 30% held-out set strictly once prevents overfitting and benchmark data contamination. | Accepted |
 | 2026-11-16 | The self-healer must re-enter the full firewall pipeline and never bypass it | Direct downstream execution on rewrite, bypass flag, relaxed layer subset | Defense-in-depth requires every generated tool call to be verified; allowing bypass would create a catastrophic privilege escalation vulnerability. | Accepted |
 | 2026-11-16 | BLOCK is the positive class for metrics | ALLOW as positive class, multi-class confusion matrix only | The primary security objective is detecting and stopping malicious/unsafe tool calls; treating BLOCK as positive aligns standard True Positive, Precision, and Recall definitions with threat detection. | Accepted |
+| 2026-11-16 | Groq API (`groq` SDK) for LLM agents and Layer 4 judge | Anthropic Claude API, OpenAI API, local Ollama | High-speed inference and low latency critical for real-time proxy interception overhead; cost-efficient model execution for eval runs. | Accepted |
 
 ## Open questions
 - (none yet)
