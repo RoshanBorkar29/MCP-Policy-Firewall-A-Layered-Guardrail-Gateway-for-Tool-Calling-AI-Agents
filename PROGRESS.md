@@ -1,19 +1,19 @@
 # Project Progress: MCP Policy Firewall
 
 ## Current status
-- **Active Day**: Day 0 - Repository skeleton and documentation setup.
-- **Phase**: Setup and initial project scaffolding.
+- **Active Day**: Day 1 - Synthetic DB, downstream MCP server, worker agent.
+- **Phase**: Implementing baseline downstream infrastructure.
 
 ## 10-Day Build Plan Checklist
 
-- [ ] **Day 0: Setup**
+- [x] **Day 0: Setup**
   - [x] Repository skeleton and directory structure
   - [x] Architecture decisions log (`DECISIONS.md` and per-folder `decisions.md`)
   - [x] Developer guide and assistant instructions (`CLAUDE.md`)
   - [x] Environment configuration (`.env.example`, `.gitignore`, `requirements.txt`)
   - [x] Documentation stubs and prompt templates
 - [ ] **Day 1: Synthetic DB, Downstream Server, Worker Agent**
-  - [ ] Implement synthetic database generator (`data/make_db.py`) with canary PII
+  - [x] Implement synthetic database generator (`data/make_db.py`) with canary PII
   - [ ] Build downstream FastMCP server (`downstream/sql_server.py`)
   - [ ] Implement worker agent (`agents/worker.py` and `agents/prompts/worker.md`) without firewall
 - [ ] **Day 2: Proxy, Pipeline, Audit Log, Layer 1, Unit Tests**

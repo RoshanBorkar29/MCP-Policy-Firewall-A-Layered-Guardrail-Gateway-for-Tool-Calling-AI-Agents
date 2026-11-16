@@ -15,7 +15,7 @@ Responsible for generating and storing synthetic test databases, canary records,
 ## Decision log
 | Date | Decision | Alternatives considered | Reason | Status |
 |------|----------|-------------------------|--------|--------|
-|      |          |                         |        |        |
+| 2026-11-16 | Relational schema (customers, accounts, transactions) with deterministic Faker seed (42) and canary SSNs (900-00-xxxx) | Single flat customer table, static CSV mocks, non-deterministic random seeding | Models real-world relational SQL queries while guaranteeing reproducible test state and deterministic canary leakage detection. | Accepted |
 
 ## Open questions
 - (none yet)
