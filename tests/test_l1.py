@@ -2,3 +2,4 @@
 Inputs: Synthetic test queries (valid, destructive, malformed). Outputs: Pytest test assertion results.
 Build plan: Day 2.
 """
+

@@ -15,3 +15,4 @@ This repository has strict development rules and architectural invariants that e
 9. **Minimal Dependencies**: Keep code minimal and readable. No UI components. Do not add external dependencies without logging the rationale in `DECISIONS.md`.
 10. **Test and Eval Coverage**: Every function or change that alters firewall behavior needs a matching unit test or eval case.
 11. **Commit Message Format**: Commit messages must follow the convention `day-N: short description` (e.g., `day-0: repo skeleton and documentation`).
+

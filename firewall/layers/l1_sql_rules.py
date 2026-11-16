@@ -2,3 +2,4 @@
 Inputs: SQL query strings and policy AST rules. Outputs: Pass or BLOCK decision with violation reason.
 Build plan: Day 2.
 """
+

@@ -2,3 +2,4 @@
 Inputs: Query text and tool return payloads. Outputs: Sanitized payload or MODIFY/BLOCK decision.
 Build plan: Day 3.
 """
+

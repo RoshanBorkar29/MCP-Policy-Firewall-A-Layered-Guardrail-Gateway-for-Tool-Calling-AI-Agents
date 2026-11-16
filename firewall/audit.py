@@ -2,3 +2,4 @@
 Inputs: Evaluation contexts, layer decisions, and tool outputs. Outputs: Append-only JSONL audit records.
 Build plan: Day 2.
 """
+

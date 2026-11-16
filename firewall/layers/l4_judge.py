@@ -2,3 +2,4 @@
 Inputs: Agent conversation context, tool arguments, and intent prompt. Outputs: Semantic risk verdict.
 Build plan: Day 5.
 """
+

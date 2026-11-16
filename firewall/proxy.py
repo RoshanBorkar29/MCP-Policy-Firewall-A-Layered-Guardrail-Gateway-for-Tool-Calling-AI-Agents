@@ -2,3 +2,4 @@
 Inputs: Incoming client tool requests. Outputs: Proxied or blocked tool execution responses.
 Build plan: Day 2.
 """
+

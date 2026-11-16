@@ -2,3 +2,4 @@
 Inputs: Metrics summary objects and run metadata. Outputs: Formatted terminal tables and markdown reports.
 Build plan: Day 4.
 """
+

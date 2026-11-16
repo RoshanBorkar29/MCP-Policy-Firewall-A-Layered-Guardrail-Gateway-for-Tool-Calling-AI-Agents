@@ -2,3 +2,4 @@
 Inputs: Faker configuration, canary SSN patterns. Outputs: SQLite database file (data/synthetic.db).
 Build plan: Day 1.
 """
+

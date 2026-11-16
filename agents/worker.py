@@ -2,3 +2,4 @@
 Inputs: Task descriptions and MCP tool schemas. Outputs: Completed task results or error handling.
 Build plan: Day 1.
 """
+

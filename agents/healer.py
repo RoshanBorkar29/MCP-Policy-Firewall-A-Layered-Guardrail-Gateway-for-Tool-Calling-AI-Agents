@@ -2,3 +2,4 @@
 Inputs: Blocked tool request, error feedback, and policy rules. Outputs: Compliant rewritten tool call.
 Build plan: Day 7.
 """
+

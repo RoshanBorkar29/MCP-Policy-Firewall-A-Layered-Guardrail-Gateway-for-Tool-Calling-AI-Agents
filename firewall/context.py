@@ -2,3 +2,4 @@
 Inputs: Incoming tool call headers and parameters. Outputs: Immutable RequestContext instances.
 Build plan: Day 2.
 """
+
