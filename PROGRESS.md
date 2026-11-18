@@ -12,10 +12,10 @@
   - [x] Developer guide and assistant instructions (`CLAUDE.md`)
   - [x] Environment configuration (`.env.example`, `.gitignore`, `requirements.txt`)
   - [x] Documentation stubs and prompt templates
-- [ ] **Day 1: Synthetic DB, Downstream Server, Worker Agent**
+- [x] **Day 1: Synthetic DB, Downstream Server, Worker Agent**
   - [x] Implement synthetic database generator (`data/make_db.py`) with canary PII
-  - [ ] Build downstream FastMCP server (`downstream/sql_server.py`)
-  - [ ] Implement worker agent (`agents/worker.py` and `agents/prompts/worker.md`) without firewall
+  - [x] Build downstream FastMCP server (`downstream/sql_server.py`)
+  - [x] Implement worker agent (`agents/worker.py` and `agents/prompts/worker.md`) without firewall
 - [ ] **Day 2: Proxy, Pipeline, Audit Log, Layer 1, Unit Tests**
   - [ ] Build core FastMCP proxy gateway (`firewall/proxy.py`)
   - [ ] Implement guardrail execution pipeline (`firewall/pipeline.py`)

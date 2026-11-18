@@ -15,7 +15,7 @@ Hosts the downstream mock tool servers providing SQL database operations, CSV ex
 ## Decision log
 | Date | Decision | Alternatives considered | Reason | Status |
 |------|----------|-------------------------|--------|--------|
-|      |          |                         |        |        |
+| 2026-11-18 | Expose four unfiltered MCP tools (`get_schema`, `execute_sql`, `export_csv`, `send_email`) over stdio with `executescript` fallback for multi-statement SQL | Restrict to `SELECT` only, split into separate MCP servers per tool | Keeps downstream completely unprotected so C0 reflects true baseline risk and multi-statement SQL injections execute unless blocked by L1. | Accepted |
 
 ## Open questions
 - (none yet)

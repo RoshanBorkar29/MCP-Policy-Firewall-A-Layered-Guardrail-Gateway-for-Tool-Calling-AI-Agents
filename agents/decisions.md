@@ -21,7 +21,7 @@ Defines AI agent implementations (worker, attacker, self-healer) and system prom
 ## Decision log
 | Date | Decision | Alternatives considered | Reason | Status |
 |------|----------|-------------------------|--------|--------|
-|      |          |                         |        |        |
+| 2026-11-18 | Worker agent connects to configurable MCP server script via stdio, converts MCP tool schemas to Groq tool-calling format, uses stdlib `.env` loader, and fixes `temperature=0` | `python-dotenv` dependency, hardcoded server path, single-turn execution | Avoids extra dependencies, supports swapping `downstream/sql_server.py` for `firewall/proxy.py` on Day 2, and satisfies deterministic LLM invocation rules. | Accepted |
 
 ## Open questions
 - (none yet)
