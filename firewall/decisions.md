@@ -19,7 +19,7 @@ Implements the core MCP proxy gateway, orchestration pipeline, request context, 
 ## Decision log
 | Date | Decision | Alternatives considered | Reason | Status |
 |------|----------|-------------------------|--------|--------|
-|      |          |                         |        |        |
+| 2026-11-19 | In-process downstream execution with RequestContext metadata propagation and fail-safe JSONL audit logging | Subprocess stdio proxying to downstream, synchronous HTTP calls | In-process execution prevents Windows stdio subprocess deadlocks, ensures sub-millisecond proxy routing, and simplifies unit/integration testing while maintaining strict layer isolation. | Accepted |
 
 ## Open questions
 - (none yet)

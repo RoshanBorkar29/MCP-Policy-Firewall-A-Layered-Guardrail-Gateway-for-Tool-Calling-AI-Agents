@@ -1,8 +1,8 @@
 # Project Progress: MCP Policy Firewall
 
 ## Current status
-- **Active Day**: Day 1 - Synthetic DB, downstream MCP server, worker agent.
-- **Phase**: Implementing baseline downstream infrastructure.
+- **Active Day**: Day 2 - Proxy, Pipeline, Audit Log, Layer 1, Unit Tests.
+- **Phase**: Core firewall pipeline and Layer 1 AST inspection implemented and verified with 34 unit tests.
 
 ## 10-Day Build Plan Checklist
 
@@ -16,12 +16,12 @@
   - [x] Implement synthetic database generator (`data/make_db.py`) with canary PII
   - [x] Build downstream FastMCP server (`downstream/sql_server.py`)
   - [x] Implement worker agent (`agents/worker.py` and `agents/prompts/worker.md`) without firewall
-- [ ] **Day 2: Proxy, Pipeline, Audit Log, Layer 1, Unit Tests**
-  - [ ] Build core FastMCP proxy gateway (`firewall/proxy.py`)
-  - [ ] Implement guardrail execution pipeline (`firewall/pipeline.py`)
-  - [ ] Create structured audit logging service (`firewall/audit.py`, `firewall/context.py`)
-  - [ ] Implement Layer 1 SQL AST rules using sqlglot (`firewall/layers/l1_sql_rules.py`)
-  - [ ] Write 30 unit tests (`tests/test_l1.py`, `tests/test_pipeline.py`)
+- [x] **Day 2: Proxy, Pipeline, Audit Log, Layer 1, Unit Tests**
+  - [x] Build core FastMCP proxy gateway (`firewall/proxy.py`)
+  - [x] Implement guardrail execution pipeline (`firewall/pipeline.py`)
+  - [x] Create structured audit logging service (`firewall/audit.py`, `firewall/context.py`)
+  - [x] Implement Layer 1 SQL AST rules using sqlglot (`firewall/layers/l1_sql_rules.py`)
+  - [x] Write 30 unit tests (`tests/test_l1.py`, `tests/test_pipeline.py`)
 - [ ] **Day 3: Policy Configuration, Layers 2 and 3**
   - [ ] Define declarative policy rules (`firewall/policy.yaml`)
   - [ ] Implement Layer 2 PII masking and canary detection (`firewall/layers/l2_pii.py`)

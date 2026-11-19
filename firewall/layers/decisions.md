@@ -19,7 +19,7 @@ Contains individual guardrail layer implementations (L1 through L5) for tool cal
 ## Decision log
 | Date | Decision | Alternatives considered | Reason | Status |
 |------|----------|-------------------------|--------|--------|
-|      |          |                         |        |        |
+| 2026-11-19 | sqlglot SQLite AST inspection enforcing single-statement SELECT/UNION and rejecting DDL/DML/PRAGMA/ATTACH nodes anywhere in AST walk | Regex keyword filtering, sqlparse token stream scanning, EXPLAIN QUERY PLAN SQLite execution | AST parsing is immune to comment evasion, whitespace obfuscation, and dialect quirks; tree-walking detects nested destructive operations inside subqueries. | Accepted |
 
 ## Open questions
 - (none yet)

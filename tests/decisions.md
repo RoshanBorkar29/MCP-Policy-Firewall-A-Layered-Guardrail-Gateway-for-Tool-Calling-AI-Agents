@@ -18,7 +18,7 @@ Contains automated pytest unit and integration test suites validating individual
 ## Decision log
 | Date | Decision | Alternatives considered | Reason | Status |
 |------|----------|-------------------------|--------|--------|
-|      |          |                         |        |        |
+| 2026-11-19 | Automated 34 unit test suite across test_l1.py and test_pipeline.py with conftest.py sys.path bootstrap | Manual script runs, mocking entire database instead of testing against synthetic DB | Ensures deterministic verification of all AST parsing branches, layer toggles, and audit events without external network dependencies. | Accepted |
 
 ## Open questions
 - (none yet)
