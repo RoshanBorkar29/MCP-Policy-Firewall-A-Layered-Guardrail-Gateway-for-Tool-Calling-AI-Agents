@@ -20,6 +20,7 @@ Contains individual guardrail layer implementations (L1 through L5) for tool cal
 | Date | Decision | Alternatives considered | Reason | Status |
 |------|----------|-------------------------|--------|--------|
 | 2026-11-19 | sqlglot SQLite AST inspection enforcing single-statement SELECT/UNION and rejecting DDL/DML/PRAGMA/ATTACH nodes anywhere in AST walk | Regex keyword filtering, sqlparse token stream scanning, EXPLAIN QUERY PLAN SQLite execution | AST parsing is immune to comment evasion, whitespace obfuscation, and dialect quirks; tree-walking detects nested destructive operations inside subqueries. | Accepted |
+| 2026-11-21 | Recursive JSON-aware PII scanner prioritizing canary SSN redactions (`[REDACTED_CANARY_SSN]`) before standard SSN/email/phone regex with policy-driven rules | Pure regex across raw JSON text, external Presidio/Spacy NER packages | Regex on raw JSON risks corrupting JSON syntax (e.g. quotes/escapes); heavy NLP libraries add large dependencies violating CLAUDE.md; recursive structure traversal preserves schema integrity. | Accepted |
 
 ## Open questions
 - (none yet)
