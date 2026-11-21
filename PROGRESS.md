@@ -1,8 +1,8 @@
 # Project Progress: MCP Policy Firewall
 
 ## Current status
-- **Active Day**: Day 2 - Proxy, Pipeline, Audit Log, Layer 1, Unit Tests.
-- **Phase**: Core firewall pipeline and Layer 1 AST inspection implemented and verified with 34 unit tests.
+- **Active Day**: Day 3 - Policy Configuration, Layers 2 and 3.
+- **Phase**: Policy, Layer 2 PII masking, Layer 3 limits, pipeline integration, and unit tests completed.
 
 ## 10-Day Build Plan Checklist
 
@@ -22,11 +22,11 @@
   - [x] Create structured audit logging service (`firewall/audit.py`, `firewall/context.py`)
   - [x] Implement Layer 1 SQL AST rules using sqlglot (`firewall/layers/l1_sql_rules.py`)
   - [x] Write 30 unit tests (`tests/test_l1.py`, `tests/test_pipeline.py`)
-- [ ] **Day 3: Policy Configuration, Layers 2 and 3**
+- [x] **Day 3: Policy Configuration, Layers 2 and 3**
   - [x] Define declarative policy rules (`firewall/policy.yaml`)
   - [x] Implement Layer 2 PII masking and canary detection (`firewall/layers/l2_pii.py`)
   - [x] Implement Layer 3 rate, row, and cost limiters (`firewall/layers/l3_limits.py`)
-  - [ ] Unit tests for L2 and L3 (`tests/test_l2.py`, `tests/test_l3.py`)
+  - [x] Unit tests for L2 and L3 (`tests/test_l2.py`, `tests/test_l3.py`)
 - [ ] **Day 4: Evaluation Harness (Direct Mode)**
   - [ ] Implement evaluation runner in direct mode (`eval/run.py`)
   - [ ] Build metric calculations (`eval/metrics.py`) and canary oracles (`eval/oracles.py`)

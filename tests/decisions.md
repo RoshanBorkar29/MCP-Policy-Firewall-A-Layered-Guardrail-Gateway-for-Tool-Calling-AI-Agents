@@ -19,6 +19,7 @@ Contains automated pytest unit and integration test suites validating individual
 | Date | Decision | Alternatives considered | Reason | Status |
 |------|----------|-------------------------|--------|--------|
 | 2026-11-19 | Automated 34 unit test suite across test_l1.py and test_pipeline.py with conftest.py sys.path bootstrap | Manual script runs, mocking entire database instead of testing against synthetic DB | Ensures deterministic verification of all AST parsing branches, layer toggles, and audit events without external network dependencies. | Accepted |
+| 2026-11-21 | 27 unit tests across test_l2.py and test_l3.py covering PII regex patterns, JSON schema preservation, canary prioritization, AST row caps, rate limiting, and budget caps | Relying solely on end-to-end evaluation harness, mocking database returns | Fast, deterministic isolation of Layer 2 and Layer 3 guardrails verifying boundary conditions and reset semantics without external dependencies. | Accepted |
 
 ## Open questions
 - (none yet)
