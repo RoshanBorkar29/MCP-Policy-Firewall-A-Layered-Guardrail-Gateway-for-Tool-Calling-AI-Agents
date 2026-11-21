@@ -21,6 +21,7 @@ Contains individual guardrail layer implementations (L1 through L5) for tool cal
 |------|----------|-------------------------|--------|--------|
 | 2026-11-19 | sqlglot SQLite AST inspection enforcing single-statement SELECT/UNION and rejecting DDL/DML/PRAGMA/ATTACH nodes anywhere in AST walk | Regex keyword filtering, sqlparse token stream scanning, EXPLAIN QUERY PLAN SQLite execution | AST parsing is immune to comment evasion, whitespace obfuscation, and dialect quirks; tree-walking detects nested destructive operations inside subqueries. | Accepted |
 | 2026-11-21 | Recursive JSON-aware PII scanner prioritizing canary SSN redactions (`[REDACTED_CANARY_SSN]`) before standard SSN/email/phone regex with policy-driven rules | Pure regex across raw JSON text, external Presidio/Spacy NER packages | Regex on raw JSON risks corrupting JSON syntax (e.g. quotes/escapes); heavy NLP libraries add large dependencies violating CLAUDE.md; recursive structure traversal preserves schema integrity. | Accepted |
+| 2026-11-21 | Layer 3 triple-barrier protection: AST-based SQL row caps (mandatory LIMIT <= 50), sliding-window rate limiter, and cumulative session token/cost budget tracker | Post-execution row truncation, fixed-interval rate limiting, static global query quotas | AST-level row cap prevents downstream server memory exhaustion from huge dumps before query runs; sliding window prevents burst flooding; session budget caps total financial exposure. | Accepted |
 
 ## Open questions
 - (none yet)

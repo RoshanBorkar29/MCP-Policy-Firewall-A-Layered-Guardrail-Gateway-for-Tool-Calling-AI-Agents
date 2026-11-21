@@ -25,7 +25,7 @@
 - [ ] **Day 3: Policy Configuration, Layers 2 and 3**
   - [x] Define declarative policy rules (`firewall/policy.yaml`)
   - [x] Implement Layer 2 PII masking and canary detection (`firewall/layers/l2_pii.py`)
-  - [ ] Implement Layer 3 rate, row, and cost limiters (`firewall/layers/l3_limits.py`)
+  - [x] Implement Layer 3 rate, row, and cost limiters (`firewall/layers/l3_limits.py`)
   - [ ] Unit tests for L2 and L3 (`tests/test_l2.py`, `tests/test_l3.py`)
 - [ ] **Day 4: Evaluation Harness (Direct Mode)**
   - [ ] Implement evaluation runner in direct mode (`eval/run.py`)
