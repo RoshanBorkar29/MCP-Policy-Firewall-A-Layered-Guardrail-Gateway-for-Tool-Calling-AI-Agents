@@ -23,7 +23,7 @@
   - [x] Implement Layer 1 SQL AST rules using sqlglot (`firewall/layers/l1_sql_rules.py`)
   - [x] Write 30 unit tests (`tests/test_l1.py`, `tests/test_pipeline.py`)
 - [ ] **Day 3: Policy Configuration, Layers 2 and 3**
-  - [ ] Define declarative policy rules (`firewall/policy.yaml`)
+  - [x] Define declarative policy rules (`firewall/policy.yaml`)
   - [ ] Implement Layer 2 PII masking and canary detection (`firewall/layers/l2_pii.py`)
   - [ ] Implement Layer 3 rate, row, and cost limiters (`firewall/layers/l3_limits.py`)
   - [ ] Unit tests for L2 and L3 (`tests/test_l2.py`, `tests/test_l3.py`)

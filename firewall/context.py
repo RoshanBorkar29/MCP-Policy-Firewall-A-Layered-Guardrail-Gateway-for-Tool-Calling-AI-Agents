@@ -8,7 +8,20 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from enum import Enum
+from pathlib import Path
 from typing import Any
+import yaml
+
+DEFAULT_POLICY_PATH = Path(__file__).resolve().parent / "policy.yaml"
+
+
+def load_policy(policy_path: Path | str | None = None) -> dict[str, Any]:
+    """Loads declarative firewall configuration from policy.yaml."""
+    target = Path(policy_path or DEFAULT_POLICY_PATH).resolve()
+    if not target.exists():
+        return {}
+    with target.open("r", encoding="utf-8") as fh:
+        return yaml.safe_load(fh) or {}
 
 
 class Verdict(str, Enum):

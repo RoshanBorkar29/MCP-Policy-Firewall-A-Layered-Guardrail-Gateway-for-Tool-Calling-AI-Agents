@@ -1,2 +1,82 @@
-# MCP Policy Firewall configuration rules and limits (Day 3)
+# MCP Policy Firewall Configuration
+# All layer parameters, thresholds, and patterns are configured here.
+version: "1.0"
 
+# Layer 1: SQL AST Rules (sqlglot)
+layer_1:
+  allowed_root_statements:
+    - "SELECT"
+    - "UNION"
+  prohibited_statements:
+    - "DROP"
+    - "DELETE"
+    - "UPDATE"
+    - "INSERT"
+    - "ALTER"
+    - "CREATE"
+    - "COMMAND"
+    - "PRAGMA"
+    - "ATTACH"
+    - "TRUNCATE"
+  allow_multi_statement: false
+
+# Layer 2: PII Detection and Masking Rules
+layer_2:
+  default_replacement: "[REDACTED]"
+  patterns:
+    - name: "canary_ssn"
+      description: "Synthetic canary Social Security Numbers for exact leak measurement"
+      regex: "\\b900-00-\\d{4}\\b"
+      mask: "[REDACTED_CANARY_SSN]"
+    - name: "standard_ssn"
+      description: "Standard US Social Security Number format"
+      regex: "\\b\\d{3}-\\d{2}-\\d{4}\\b"
+      mask: "[REDACTED_SSN]"
+    - name: "email"
+      description: "Email addresses"
+      regex: "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b"
+      mask: "[REDACTED_EMAIL]"
+    - name: "phone"
+      description: "US and formatted phone numbers"
+      regex: "\\b(?:\\+?1[-. ]?)?\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\\b"
+      mask: "[REDACTED_PHONE]"
+    - name: "credit_card"
+      description: "16-digit credit card numbers"
+      regex: "\\b(?:\\d{4}[- ]?){3}\\d{4}\\b"
+      mask: "[REDACTED_CC]"
+  sensitive_keys:
+    - "ssn"
+    - "email"
+    - "phone"
+    - "credit_card"
+    - "account_number"
+
+# Layer 3: Rate, Row, and Cost Budget Limits
+layer_3:
+  row_limits:
+    max_rows: 50
+    enforce_limit_clause: true
+    default_injected_limit: 50
+  rate_limits:
+    max_requests_per_minute: 10
+    window_seconds: 60
+  budgets:
+    max_session_tokens: 50000
+    max_session_cost_dollars: 1.00
+    cost_per_query_dollars: 0.002
+
+# Layer 4: LLM Judge Configuration
+layer_4:
+  model: "openai/gpt-oss-120b"
+  temperature: 0
+  max_tokens: 256
+  timeout_seconds: 15
+  risk_threshold: "HIGH"
+
+# Layer 5: Human Approval Gate
+layer_5:
+  high_risk_tools:
+    - "export_csv"
+    - "send_email"
+  require_approval_on_modify: false
+  timeout_seconds: 60
