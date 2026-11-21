@@ -21,6 +21,7 @@ Implements the core MCP proxy gateway, orchestration pipeline, request context, 
 |------|----------|-------------------------|--------|--------|
 | 2026-11-19 | In-process downstream execution with RequestContext metadata propagation and fail-safe JSONL audit logging | Subprocess stdio proxying to downstream, synchronous HTTP calls | In-process execution prevents Windows stdio subprocess deadlocks, ensures sub-millisecond proxy routing, and simplifies unit/integration testing while maintaining strict layer isolation. | Accepted |
 | 2026-11-21 | Declarative multi-layer policy schema in `firewall/policy.yaml` with cached loader in `firewall/context.py` | Python constants, environment variable overrides per layer | Keeps security policies human-auditable, decoupled from code, and reconfigurable without code changes per root DECISIONS.md. | Accepted |
+| 2026-11-21 | Two-phase pipeline integration: L3 (limits) + L1 (AST) in `evaluate_request` and L2 (PII masking) in `evaluate_response` with layer-level ablation toggling | Single monolithic evaluation step, inspecting only pre-execution requests | Pre-execution gating stops unauthorized execution before downstream servers run; post-execution sanitization redacts returned data before client models receive it. | Accepted |
 
 ## Open questions
 - (none yet)

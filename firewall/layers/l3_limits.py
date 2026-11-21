@@ -118,6 +118,21 @@ def _check_sql_row_limits(
     if not isinstance(root_stmt, (exp.Select, exp.Union)):
         return True, ""
 
+    # Scalar aggregates without GROUP BY always return at most 1 row (safe under any limit)
+    has_group = root_stmt.args.get("group") is not None
+    is_scalar_agg = (
+        bool(
+            list(
+                root_stmt.find_all(
+                    (exp.Count, exp.Sum, exp.Avg, exp.Min, exp.Max)
+                )
+            )
+        )
+        and not has_group
+    )
+    if is_scalar_agg:
+        return True, ""
+
     # 1. Enforce presence of root LIMIT clause if required
     root_limit = root_stmt.args.get("limit")
     if enforce_limit_clause and root_limit is None:
