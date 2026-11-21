@@ -20,7 +20,7 @@ Contains automated pytest unit and integration test suites validating individual
 |------|----------|-------------------------|--------|--------|
 | 2026-11-19 | Automated 34 unit test suite across test_l1.py and test_pipeline.py with conftest.py sys.path bootstrap | Manual script runs, mocking entire database instead of testing against synthetic DB | Ensures deterministic verification of all AST parsing branches, layer toggles, and audit events without external network dependencies. | Accepted |
 | 2026-11-21 | 27 unit tests across test_l2.py and test_l3.py covering PII regex patterns, JSON schema preservation, canary prioritization, AST row caps, rate limiting, and budget caps | Relying solely on end-to-end evaluation harness, mocking database returns | Fast, deterministic isolation of Layer 2 and Layer 3 guardrails verifying boundary conditions and reset semantics without external dependencies. | Accepted |
+| 2026-11-21 | 18 unit tests in `test_oracles.py` covering canary leak detection, decision oracle equivalence, DB mutation detection, metrics calculation edge cases, report formatting, and direct evaluation execution | Manual inspection of eval logs | Provides regression protection for evaluation infrastructure so metrics calculations and oracles remain provably accurate and stable. | Accepted |
 
 ## Open questions
 - (none yet)
-

@@ -1,8 +1,8 @@
 # Project Progress: MCP Policy Firewall
 
 ## Current status
-- **Active Day**: Day 3 - Policy Configuration, Layers 2 and 3.
-- **Phase**: Policy, Layer 2 PII masking, Layer 3 limits, pipeline integration, and unit tests completed.
+- **Active Day**: Day 4 - Evaluation Harness (Direct Mode).
+- **Phase**: Direct evaluation runner, canary and decision oracles, security metrics, ablation configurations (C0-C5), reporting utilities, and unit tests completed.
 
 ## 10-Day Build Plan Checklist
 
@@ -27,12 +27,12 @@
   - [x] Implement Layer 2 PII masking and canary detection (`firewall/layers/l2_pii.py`)
   - [x] Implement Layer 3 rate, row, and cost limiters (`firewall/layers/l3_limits.py`)
   - [x] Unit tests for L2 and L3 (`tests/test_l2.py`, `tests/test_l3.py`)
-- [ ] **Day 4: Evaluation Harness (Direct Mode)**
-  - [ ] Implement evaluation runner in direct mode (`eval/run.py`)
-  - [ ] Build metric calculations (`eval/metrics.py`) and canary oracles (`eval/oracles.py`)
-  - [ ] Build reporting utility (`eval/report.py`)
-  - [ ] Define ablation configurations (`eval/configs.yaml`)
-  - [ ] Unit tests for oracles (`tests/test_oracles.py`)
+- [x] **Day 4: Evaluation Harness (Direct Mode)**
+  - [x] Implement evaluation runner in direct mode (`eval/run.py`)
+  - [x] Build metric calculations (`eval/metrics.py`) and canary oracles (`eval/oracles.py`)
+  - [x] Build reporting utility (`eval/report.py`)
+  - [x] Define ablation configurations (`eval/configs.yaml`)
+  - [x] Unit tests for oracles (`tests/test_oracles.py`)
 - [ ] **Day 5: Layer 4 Judge, Layer 5 Approval Gate**
   - [ ] Implement Layer 4 LLM judge (`firewall/layers/l4_judge.py` and `agents/prompts/judge.md`)
   - [ ] Implement Layer 5 human approval gate (`firewall/layers/l5_approval.py`)
@@ -59,5 +59,4 @@
   - [ ] Tag release `v1.0`
 
 ## Blockers / notes
-- None currently. Initial repository setup and Day 0 tasks underway.
-
+- None currently. All 80 unit tests passing; Day 4 evaluation harness and ablation runs verified.

@@ -1,8 +1,39 @@
 # Ablation Study Configurations (Day 4)
-# C0: none (passthrough baseline without any firewall layers enabled)
-# C1: L1 (Layer 1 SQL AST rules via sqlglot)
-# C2: L1+L2 (Layer 1 SQL AST rules + Layer 2 PII masking)
-# C3: L1+L2+L3 (Layer 1 SQL AST rules + Layer 2 PII masking + Layer 3 rate and budget limits)
-# C4: L1-L4 (Layer 1 through Layer 4 including LLM judge)
-# C5: L1-L5 + self-healer (Full defense with Layer 5 approval gate + self-healing agent)
+# Defines evaluation configurations C0 through C5 for measuring guardrail efficacy.
 
+configurations:
+  C0:
+    name: "C0: Passthrough Baseline"
+    description: "Passthrough baseline without any firewall guardrails enabled"
+    layers: []
+    enabled: true
+
+  C1:
+    name: "C1: L1 SQL AST"
+    description: "Layer 1 SQL AST syntactic rules via sqlglot"
+    layers: ["L1"]
+    enabled: true
+
+  C2:
+    name: "C2: L1 + L2 PII"
+    description: "Layer 1 SQL AST rules + Layer 2 PII masking & canary detection"
+    layers: ["L1", "L2"]
+    enabled: true
+
+  C3:
+    name: "C3: L1 + L2 + L3 Limits"
+    description: "Layer 1 SQL AST + Layer 2 PII + Layer 3 rate, row, and cost limiters"
+    layers: ["L1", "L2", "L3"]
+    enabled: true
+
+  C4:
+    name: "C4: L1-L4 Judge"
+    description: "Layers 1-3 deterministic controls + Layer 4 LLM semantic judge"
+    layers: ["L1", "L2", "L3", "L4"]
+    enabled: true
+
+  C5:
+    name: "C5: Full Defense"
+    description: "Full layered defense: Layers 1-4 + Layer 5 human approval gate & self-healer"
+    layers: ["L1", "L2", "L3", "L4", "L5"]
+    enabled: true

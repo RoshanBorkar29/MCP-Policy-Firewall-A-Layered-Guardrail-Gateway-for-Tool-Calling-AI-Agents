@@ -1,7 +1,7 @@
 # Decisions: eval/cases
 
 ## Purpose
-Stores the 200 benchmark test cases partitioned into categorized JSONL datasets. It provides standardized benign, malicious, injection, edge, and recovery test vectors.
+Stores benchmark test cases partitioned into categorized JSONL datasets. It provides standardized benign, malicious, injection, edge, and recovery test vectors.
 
 ## Planned contents
 - `safe.jsonl`: Legitimate business queries and tool calls (negative class).
@@ -18,8 +18,8 @@ Stores the 200 benchmark test cases partitioned into categorized JSONL datasets.
 ## Decision log
 | Date | Decision | Alternatives considered | Reason | Status |
 |------|----------|-------------------------|--------|--------|
-|      |          |                         |        |        |
+| 2026-11-21 | Seeded initial categorized test vectors across `safe.jsonl`, `dangerous.jsonl`, `edge.jsonl`, `injection.jsonl`, and `healer.jsonl` with human-labeled ground truth | Synthesizing cases via LLM prompt generation | Ensures 100% human-verified ground truth free from model hallucinations and bias. Provides direct mode test cases for Day 4 validation. | Accepted |
+| 2026-11-21 | Explicit root `LIMIT` clause on outer CTE queries in `edge.jsonl` | Allowing root query without limit if CTE has limit | Adheres strictly to Layer 3 AST requirements where root statements must explicitly declare row limits unless scalar aggregation is proven. | Accepted |
 
 ## Open questions
-- (none yet)
-
+- (none currently)

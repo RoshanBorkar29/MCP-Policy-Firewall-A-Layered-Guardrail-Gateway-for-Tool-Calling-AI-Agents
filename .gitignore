@@ -43,6 +43,7 @@ htmlcov/
 
 # Evaluation results and run logs
 results/*.json
+results/*.csv
 results/outbox.log
 results/audit.jsonl
 

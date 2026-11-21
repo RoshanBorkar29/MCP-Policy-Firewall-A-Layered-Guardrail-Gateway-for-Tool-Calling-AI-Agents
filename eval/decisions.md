@@ -20,8 +20,10 @@ Provides the evaluation harness, metric calculations, canary oracles, reporting,
 ## Decision log
 | Date | Decision | Alternatives considered | Reason | Status |
 |------|----------|-------------------------|--------|--------|
-|      |          |                         |        |        |
+| 2026-11-21 | Declarative ablation matrix C0-C5 in `configs.yaml` with Direct Mode harness in `run.py` | Embedding config hardcoded in Python runner; requiring live LLM worker agent for all runs | Direct mode enables fast, deterministic, zero-cost evaluation of deterministic guardrails (L1, L2, L3) before introducing LLM judge and human gates. | Accepted |
+| 2026-11-21 | Per-case isolated DB copy restoration in `run.py` | Running queries directly on `synthetic.db` or using in-memory SQLite | Destructive queries allowed in C0 (baseline passthrough), such as `DROP TABLE`, would otherwise permanently corrupt the database state and distort metrics for subsequent queries. | Accepted |
+| 2026-11-21 | Dedicated `oracles.py` with binary equivalence matching (`ALLOW`/`MODIFY`, `BLOCK`/`APPROVAL_REQUIRED`) and unmasked canary regex `\b900-00-\d{4}\b` | Loose substring matching, LLM-based output evaluation | Eliminates evaluator hallucinations, ensures exact zero-false-positive canary leak measurements, and maps fine-grained verdicts to standard binary classification metrics. | Accepted |
+| 2026-11-21 | `BLOCK` as positive class in `metrics.py` with zero-division protection across Precision, Recall, F1, FPR, ASR, and Canary Leak Rate | Treating `ALLOW` as positive class; crashing on zero-count denominators | Aligns with standard cybersecurity convention where attacks/violations constitute the positive detection signal. Zero-division guards guarantee benchmark reliability on sparse splits. | Accepted |
 
 ## Open questions
-- (none yet)
-
+- (none currently)
