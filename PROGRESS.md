@@ -1,8 +1,8 @@
 # Project Progress: MCP Policy Firewall
 
 ## Current status
-- **Active Day**: Day 4 - Evaluation Harness (Direct Mode).
-- **Phase**: Direct evaluation runner, canary and decision oracles, security metrics, ablation configurations (C0-C5), reporting utilities, and unit tests completed.
+- **Active Day**: Day 5 - Layer 4 Judge, Layer 5 Approval Gate.
+- **Phase**: Layer 4 LLM Judge, Layer 5 Human Approval Gate, prompt template, pipeline integration, and unit tests completed.
 
 ## 10-Day Build Plan Checklist
 
@@ -33,10 +33,10 @@
   - [x] Build reporting utility (`eval/report.py`)
   - [x] Define ablation configurations (`eval/configs.yaml`)
   - [x] Unit tests for oracles (`tests/test_oracles.py`)
-- [ ] **Day 5: Layer 4 Judge, Layer 5 Approval Gate**
-  - [ ] Implement Layer 4 LLM judge (`firewall/layers/l4_judge.py` and `agents/prompts/judge.md`)
-  - [ ] Implement Layer 5 human approval gate (`firewall/layers/l5_approval.py`)
-  - [ ] Integration testing with interactive approval simulation
+- [x] **Day 5: Layer 4 Judge, Layer 5 Approval Gate**
+  - [x] Implement Layer 4 LLM judge (`firewall/layers/l4_judge.py` and `agents/prompts/judge.md`)
+  - [x] Implement Layer 5 human approval gate (`firewall/layers/l5_approval.py`)
+  - [x] Integration testing with interactive approval simulation
 - [ ] **Day 6: Attacker Agent, Injection Cases, End-to-End Mode**
   - [ ] Build adversarial attacker agent (`agents/attacker.py` and `agents/prompts/attacker.md`)
   - [ ] Assemble test cases (`safe.jsonl`, `dangerous.jsonl`, `injection.jsonl`, `edge.jsonl`)
@@ -59,4 +59,4 @@
   - [ ] Tag release `v1.0`
 
 ## Blockers / notes
-- None currently. All 80 unit tests passing; Day 4 evaluation harness and ablation runs verified.
+- None currently. All 102 unit tests passing; Layer 4 judge and Layer 5 approval gate verified.

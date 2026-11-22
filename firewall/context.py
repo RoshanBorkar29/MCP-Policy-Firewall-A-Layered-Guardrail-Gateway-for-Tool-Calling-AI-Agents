@@ -71,6 +71,11 @@ class FirewallDecision:
         """Check if execution may proceed (either untouched or modified)."""
         return self.verdict in (Verdict.ALLOW, Verdict.MODIFY)
 
+    @property
+    def requires_approval(self) -> bool:
+        """Check if execution requires human-in-the-loop approval."""
+        return self.verdict == Verdict.APPROVAL_REQUIRED
+
     def to_dict(self) -> dict[str, Any]:
         """Convert decision to a dictionary representation."""
         return {

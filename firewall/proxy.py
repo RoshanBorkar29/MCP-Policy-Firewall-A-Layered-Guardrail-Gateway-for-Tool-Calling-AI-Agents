@@ -30,7 +30,7 @@ def _handle_tool_call(tool_name: str, arguments: dict[str, Any]) -> str:
     decision = pipeline.evaluate_request(context)
     decision.latency_ms = (time.perf_counter() - t0) * 1000.0
 
-    if decision.is_blocked:
+    if not decision.is_allowed:
         err_msg = json.dumps(
             {
                 "error": f"Security Policy Violation [{decision.layer}]: {decision.reason}",
