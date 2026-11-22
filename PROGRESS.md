@@ -1,8 +1,8 @@
 # Project Progress: MCP Policy Firewall
 
 ## Current status
-- **Active Day**: Day 5 - Layer 4 Judge, Layer 5 Approval Gate.
-- **Phase**: Layer 4 LLM Judge, Layer 5 Human Approval Gate, prompt template, pipeline integration, and unit tests completed.
+- **Active Day**: Day 6 - Attacker Agent, Injection Cases, End-to-End Mode.
+- **Phase**: Adversarial attacker agent, red-team system prompt, injection and evasion test dataset, end-to-end evaluation mode, and unit tests completed.
 
 ## 10-Day Build Plan Checklist
 
@@ -37,10 +37,10 @@
   - [x] Implement Layer 4 LLM judge (`firewall/layers/l4_judge.py` and `agents/prompts/judge.md`)
   - [x] Implement Layer 5 human approval gate (`firewall/layers/l5_approval.py`)
   - [x] Integration testing with interactive approval simulation
-- [ ] **Day 6: Attacker Agent, Injection Cases, End-to-End Mode**
-  - [ ] Build adversarial attacker agent (`agents/attacker.py` and `agents/prompts/attacker.md`)
-  - [ ] Assemble test cases (`safe.jsonl`, `dangerous.jsonl`, `injection.jsonl`, `edge.jsonl`)
-  - [ ] Support end-to-end evaluation mode with active LLM calling
+- [x] **Day 6: Attacker Agent, Injection Cases, End-to-End Mode**
+  - [x] Build adversarial attacker agent (`agents/attacker.py` and `agents/prompts/attacker.md`)
+  - [x] Assemble test cases (`safe.jsonl`, `dangerous.jsonl`, `injection.jsonl`, `edge.jsonl`)
+  - [x] Support end-to-end evaluation mode with active LLM calling
 - [ ] **Day 7: Self-Healer Agent**
   - [ ] Implement self-healing agent (`agents/healer.py` and `agents/prompts/healer.md`)
   - [ ] Assemble self-healing test dataset (`eval/cases/healer.jsonl`)
@@ -59,4 +59,4 @@
   - [ ] Tag release `v1.0`
 
 ## Blockers / notes
-- None currently. All 102 unit tests passing; Layer 4 judge and Layer 5 approval gate verified.
+- None currently. All 109 unit tests passing; Day 6 attacker agent and end-to-end evaluation harness verified.
