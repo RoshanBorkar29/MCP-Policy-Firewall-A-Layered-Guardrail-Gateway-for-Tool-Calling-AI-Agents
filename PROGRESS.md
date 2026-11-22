@@ -1,8 +1,8 @@
 # Project Progress: MCP Policy Firewall
 
 ## Current status
-- **Active Day**: Day 7 - Self-Healer Agent.
-- **Phase**: Self-healing agent, remediation prompt, healer dataset, pipeline re-entry enforcement, and unit tests completed.
+- **Active Day**: Day 8 - Full 200 Cases & Full Ablation Benchmark.
+- **Phase**: Complete 200-case dataset generated and validated (140 dev, 60 held-out). Full ablation benchmark executed across C0 through C5 on the 70% dev partition; results persisted to `results/ablation_day8.json`. All 119 unit tests passing.
 
 ## 10-Day Build Plan Checklist
 
@@ -45,10 +45,10 @@
   - [x] Implement self-healing agent (`agents/healer.py` and `agents/prompts/healer.md`)
   - [x] Assemble self-healing test dataset (`eval/cases/healer.jsonl`)
   - [x] Validate full re-entry into firewall pipeline on query rewriting
-- [ ] **Day 8: Full 200 Cases, Ablation Run**
-  - [ ] Finalize complete 200-case evaluation dataset (70% dev split)
-  - [ ] Execute full ablation benchmark across configurations C0 through C5
-  - [ ] Collect metrics: block rate, false positive rate, PII leak rate, attack success rate (ASR)
+- [x] **Day 8: Full 200 Cases, Ablation Run**
+  - [x] Finalize complete 200-case evaluation dataset (140 dev [70%], 60 held-out [30%])
+  - [x] Execute full ablation benchmark across configurations C0 through C5
+  - [x] Collect metrics: block rate, false positive rate, PII leak rate, attack success rate (ASR)
 - [ ] **Day 9: Optimization, Held-Out Validation, Known Bypasses**
   - [ ] Optimize latency and false positive edge cases on dev set
   - [ ] Execute 30% held-out test suite strictly once
@@ -59,4 +59,4 @@
   - [ ] Tag release `v1.0`
 
 ## Blockers / notes
-- None currently. All 119 unit tests passing; Day 7 self-healing agent and pipeline re-entry verified.
+- None. Day 8 completed successfully. 119 unit tests passing. Full ablation benchmark on 140 dev cases demonstrates 100% attack containment (ASR 0.0%) and 0.0% canary leakage at C5. Held-out 60 cases preserved untouched for Day 9.
