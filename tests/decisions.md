@@ -12,6 +12,7 @@ Contains automated pytest unit and integration test suites validating individual
 - `test_l4.py`: Unit tests for Layer 4 LLM semantic judge and prompt injection detection.
 - `test_l5.py`: Unit tests for Layer 5 human approval gate, high-risk detection, and CLI prompt simulation.
 - `test_attacker.py`: Unit tests for adversarial attacker agent schema conversions, multi-turn loops, and fail-safe behavior.
+- `test_healer.py`: Unit tests for self-healing agent remediation, limit adjustment, unhealable refusals, and mandatory pipeline re-entry.
 
 ## Constraints
 - Tests must execute deterministically without live external network dependencies.
@@ -26,6 +27,7 @@ Contains automated pytest unit and integration test suites validating individual
 | 2026-11-21 | 18 unit tests in `test_oracles.py` covering canary leak detection, decision oracle equivalence, DB mutation detection, metrics calculation edge cases, report formatting, and direct evaluation execution | Manual inspection of eval logs | Provides regression protection for evaluation infrastructure so metrics calculations and oracles remain provably accurate and stable. | Accepted |
 | 2026-11-22 | 22 unit tests across `test_l4.py` and `test_l5.py` with mocked Groq client completions and simulated operator inputs | Calling live Groq LLM endpoint during test suite | Ensures zero network latency, zero token cost, and reproducible deterministic assertion of semantic risk scoring and approval gate states. | Accepted |
 | 2026-11-22 | 7 synchronous unit tests in `test_attacker.py` covering tool schema conversion, text extraction, single-turn termination, multi-turn tool execution, turn caps, and fail-safe API handling | Async tests with live stdio socket subprocesses | Eliminates Windows IOCP socket loopback permission issues in sandboxed environments while fully validating the attacker agent's decision logic and trace recording. | Accepted |
+| 2026-11-22 | 10 unit tests in `test_healer.py` covering prompt loading, limit healing, row cap clamping, refusal of destructive operations, and mandatory pipeline re-entry enforcement | Testing healer in isolation without pipeline | Specifically validates the architectural invariant that rewritten queries must re-enter and satisfy the firewall pipeline, protecting against faulty or adversarial rewriters. | Accepted |
 
 ## Open questions
 - (none yet)

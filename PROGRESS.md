@@ -1,8 +1,8 @@
 # Project Progress: MCP Policy Firewall
 
 ## Current status
-- **Active Day**: Day 6 - Attacker Agent, Injection Cases, End-to-End Mode.
-- **Phase**: Adversarial attacker agent, red-team system prompt, injection and evasion test dataset, end-to-end evaluation mode, and unit tests completed.
+- **Active Day**: Day 7 - Self-Healer Agent.
+- **Phase**: Self-healing agent, remediation prompt, healer dataset, pipeline re-entry enforcement, and unit tests completed.
 
 ## 10-Day Build Plan Checklist
 
@@ -41,10 +41,10 @@
   - [x] Build adversarial attacker agent (`agents/attacker.py` and `agents/prompts/attacker.md`)
   - [x] Assemble test cases (`safe.jsonl`, `dangerous.jsonl`, `injection.jsonl`, `edge.jsonl`)
   - [x] Support end-to-end evaluation mode with active LLM calling
-- [ ] **Day 7: Self-Healer Agent**
-  - [ ] Implement self-healing agent (`agents/healer.py` and `agents/prompts/healer.md`)
-  - [ ] Assemble self-healing test dataset (`eval/cases/healer.jsonl`)
-  - [ ] Validate full re-entry into firewall pipeline on query rewriting
+- [x] **Day 7: Self-Healer Agent**
+  - [x] Implement self-healing agent (`agents/healer.py` and `agents/prompts/healer.md`)
+  - [x] Assemble self-healing test dataset (`eval/cases/healer.jsonl`)
+  - [x] Validate full re-entry into firewall pipeline on query rewriting
 - [ ] **Day 8: Full 200 Cases, Ablation Run**
   - [ ] Finalize complete 200-case evaluation dataset (70% dev split)
   - [ ] Execute full ablation benchmark across configurations C0 through C5
@@ -59,4 +59,4 @@
   - [ ] Tag release `v1.0`
 
 ## Blockers / notes
-- None currently. All 109 unit tests passing; Day 6 attacker agent and end-to-end evaluation harness verified.
+- None currently. All 119 unit tests passing; Day 7 self-healing agent and pipeline re-entry verified.

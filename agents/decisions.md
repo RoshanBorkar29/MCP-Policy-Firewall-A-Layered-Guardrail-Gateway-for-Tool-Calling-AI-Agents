@@ -23,6 +23,7 @@ Defines AI agent implementations (worker, attacker, self-healer) and system prom
 |------|----------|-------------------------|--------|--------|
 | 2026-11-18 | Worker agent connects to configurable MCP server script via stdio, converts MCP tool schemas to Groq tool-calling format, uses stdlib `.env` loader, and fixes `temperature=0` | `python-dotenv` dependency, hardcoded server path, single-turn execution | Avoids extra dependencies, supports swapping `downstream/sql_server.py` for `firewall/proxy.py` on Day 2, and satisfies deterministic LLM invocation rules. | Accepted |
 | 2026-11-22 | Attacker agent (`agents/attacker.py`) with red-team system prompt (`agents/prompts/attacker.md`) supporting both synchronous executor loop (`run_attacker_sync`) and async MCP stdio wrapper (`run_attacker`) | Async-only stdio execution | Synchronous executor enables fast, deterministic local unit testing without spawning subprocesses or triggering Windows asyncio socket restrictions, while async wrapper supports live proxy penetration testing. | Accepted |
+| 2026-11-22 | Self-healing agent (`agents/healer.py`) with remediation system prompt (`agents/prompts/healer.md`) enforcing mandatory re-entry into `FirewallPipeline.evaluate_request` | Direct downstream dispatch of rewritten queries, heuristic client-side regex patching | Direct execution of healed queries creates privilege escalation vectors; mandatory pipeline re-entry guarantees every rewritten tool call is re-checked against all active security layers. | Accepted |
 
 ## Open questions
 - (none yet)
