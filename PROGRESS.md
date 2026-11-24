@@ -1,8 +1,8 @@
 # Project Progress: MCP Policy Firewall
 
 ## Current status
-- **Active Day**: Day 8 - Full 200 Cases & Full Ablation Benchmark.
-- **Phase**: Complete 200-case dataset generated and validated (140 dev, 60 held-out). Full ablation benchmark executed across C0 through C5 on the 70% dev partition; results persisted to `results/ablation_day8.json`. All 119 unit tests passing.
+- **Active Day**: Day 9 - Optimization, Held-Out Validation, Known Bypasses.
+- **Phase**: Dev set false positive optimization completed (0 FP, 0 FN). Single-run held-out validation (60 cases) executed across C0 through C5; results saved to `results/held_out_validation.json`. Formal bypass registry and evasion analysis documented in `docs/known_bypasses.md`. All 119 unit tests passing.
 
 ## 10-Day Build Plan Checklist
 
@@ -49,14 +49,14 @@
   - [x] Finalize complete 200-case evaluation dataset (140 dev [70%], 60 held-out [30%])
   - [x] Execute full ablation benchmark across configurations C0 through C5
   - [x] Collect metrics: block rate, false positive rate, PII leak rate, attack success rate (ASR)
-- [ ] **Day 9: Optimization, Held-Out Validation, Known Bypasses**
-  - [ ] Optimize latency and false positive edge cases on dev set
-  - [ ] Execute 30% held-out test suite strictly once
-  - [ ] Document discovered bypasses and failure modes (`docs/known_bypasses.md`)
+- [x] **Day 9: Optimization, Held-Out Validation, Known Bypasses**
+  - [x] Optimize latency and false positive edge cases on dev set
+  - [x] Execute 30% held-out test suite strictly once
+  - [x] Document discovered bypasses and failure modes (`docs/known_bypasses.md`)
 - [ ] **Day 10: README, Demo, Tag v1.0**
   - [ ] Finalize comprehensive documentation and quickstart instructions in `README.md`
   - [ ] Prepare interactive end-to-end demonstration script
   - [ ] Tag release `v1.0`
 
 ## Blockers / notes
-- None. Day 8 completed successfully. 119 unit tests passing. Full ablation benchmark on 140 dev cases demonstrates 100% attack containment (ASR 0.0%) and 0.0% canary leakage at C5. Held-out 60 cases preserved untouched for Day 9.
+- None. Day 9 completed successfully. 119 unit tests passing. Held-out validation on 60 cases confirmed zero leakage, 100% recall, and 0% attack success at C4/C5 with zero false positives. Bypasses tracked in `docs/known_bypasses.md`. Ready for Day 10 (README, Demo, Release Tag v1.0).
