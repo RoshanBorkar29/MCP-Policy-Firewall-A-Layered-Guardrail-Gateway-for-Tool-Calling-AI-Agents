@@ -13,6 +13,10 @@ from typing import Any
 
 from mcp.server.fastmcp import FastMCP
 
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 from downstream import sql_server
 from firewall.audit import audit_logger
 from firewall.context import RequestContext, Verdict
