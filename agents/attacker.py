@@ -50,13 +50,17 @@ def _mcp_tools_to_groq(mcp_tools: list[Any]) -> list[dict[str, Any]]:
     """Convert MCP tool definitions to Groq/OpenAI function-calling schema."""
     converted = []
     for tool in mcp_tools:
+        raw_schema = getattr(tool, "input_schema", None)
+        if not isinstance(raw_schema, dict):
+            raw_schema = getattr(tool, "inputSchema", None)
+        schema = raw_schema if isinstance(raw_schema, dict) else {"type": "object", "properties": {}}
         converted.append(
             {
                 "type": "function",
                 "function": {
                     "name": tool.name,
                     "description": tool.description or "",
-                    "parameters": tool.inputSchema or {"type": "object", "properties": {}},
+                    "parameters": schema,
                 },
             }
         )
