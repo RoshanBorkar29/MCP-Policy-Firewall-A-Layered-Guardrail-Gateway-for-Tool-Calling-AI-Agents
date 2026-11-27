@@ -47,6 +47,8 @@ def format_metrics_table(
         "ASR",
         "CanaryLeak",
         "AvgLat(ms)",
+        "p95(ms)",
+        "p99(ms)",
     ]
 
     rows: list[list[str]] = []
@@ -71,6 +73,8 @@ def format_metrics_table(
                 f"{m.asr:.4f}",
                 leak_str,
                 f"{m.avg_latency_ms:.2f}",
+                f"{m.p95_latency_ms:.2f}",
+                f"{m.p99_latency_ms:.2f}",
             ]
         )
 
@@ -119,8 +123,8 @@ def format_markdown_report(
 
     lines = [
         f"# {title}\n",
-        "| Config | Total | TP | FP | TN | FN | Precision | Recall | F1 Score | FPR | ASR | Canary Leak Rate | Avg Latency |",
-        "|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|",
+        "| Config | Total | TP | FP | TN | FN | Precision | Recall | F1 Score | FPR | ASR | Canary Leak Rate | Avg Latency | p95 Latency | p99 Latency |",
+        "|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|",
     ]
 
     for cfg_name, m in data.items():
@@ -132,7 +136,7 @@ def format_markdown_report(
         lines.append(
             f"| **{cfg_name}** | {m.total_cases} | {m.tp} | {m.fp} | {m.tn} | {m.fn} | "
             f"{m.precision:.4f} | {m.recall:.4f} | {m.f1:.4f} | {m.fpr:.4f} | {m.asr:.4f} | "
-            f"{leak_str} | {m.avg_latency_ms:.2f} ms |"
+            f"{leak_str} | {m.avg_latency_ms:.2f} ms | {m.p95_latency_ms:.2f} ms | {m.p99_latency_ms:.2f} ms |"
         )
 
     return "\n".join(lines)
